@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: excalidraw
+  name: excalidraw
+  namespace: excalidraw
+spec:
+  ports:
+  - name: 5000-80
+    port: 5000
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30008
+  selector:
+    app: excalidraw
+  type: NodePort
+status:
+  loadBalancer: {}

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: excalidraw
+  name: excalidraw
+  namespace: excalidraw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: excalidraw
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: excalidraw
+    spec:
+      containers:
+      - image: excalidraw/excalidraw@sha256:f7ee194addd607bf831d2af0f0a34463dd4225e426cf35199ef0b12a803398e9
+        name: excalidraw
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
