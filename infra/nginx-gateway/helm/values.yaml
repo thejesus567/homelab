@@ -1,0 +1,4 @@
+nginxGateway:
+  replicas: 2
+nginx:
+  replicas: 2
