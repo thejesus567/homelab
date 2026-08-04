@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkding
+  namespace: linkding
+  labels:
+    app: linkding
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: linkding
+
+  template:
+    metadata:
+      labels:
+        app: linkding
+
+    spec:
+      volumes:
+        - name: data
+          hostPath:
+            path: /data/linkding
+            type: DirectoryOrCreate
+
+      containers:
+        - name: linkding
+          image: sissbruecker/linkding:1.45.0-plus-alpine
+
+          ports:
+            - containerPort: 9090
+
+          volumeMounts:
+            - name: data
+              mountPath: /etc/linkding/data
