@@ -7,13 +7,11 @@ metadata:
   namespace: excalidraw
 spec:
   ports:
-  - name: 5000-80
-    port: 5000
+  - name: http
+    port: 80
     protocol: TCP
     targetPort: 80
-    nodePort: 30008
   selector:
     app: excalidraw
-  type: NodePort
 status:
   loadBalancer: {}
