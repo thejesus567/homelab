@@ -2,5 +2,5 @@ nginxGateway:
   replicas: 2
 nginx:
   service:
-    type: ClusterIP
+    type: NodePort
   replicas: 2
